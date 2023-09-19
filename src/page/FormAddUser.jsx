@@ -1,51 +1,49 @@
-import {useState} from "react";
+import { useState } from "react";
 import { useFormik } from "formik";
 import "./FormAdd.scss";
 
-function FormAddUser({addUserToList}) {
-
+function FormAddUser({ submitFormHandler }) {
   function validate(values) {
-        const errors = {};
-        if (!values.firstName) {
-            errors.firstName = "Required";
-        } else if (values.firstName.length > 15) {
-            errors.firstName = "Must be 15 characters or less";
-        }
-
-        if (!values.lastName) {
-            errors.lastName = "Required";
-        } else if (values.lastName.length > 20) {
-            errors.lastName = "Must be 20 characters or less";
-        }
-
-        if (!values.phone) {
-            errors.phone = "Required";
-        }
-        return errors;
+    const errors = {};
+    if (!values.firstName) {
+      errors.firstName = "Required";
+    } else if (values.firstName.length > 15) {
+      errors.firstName = "Must be 15 characters or less";
     }
+
+    if (!values.lastName) {
+      errors.lastName = "Required";
+    } else if (values.lastName.length > 20) {
+      errors.lastName = "Must be 20 characters or less";
+    }
+
+    if (!values.phone) {
+      errors.phone = "Required";
+    }
+    return errors;
+  }
 
   const formik = useFormik({
     initialValues: {
-        firstName: "",
-        lastName: "",
-        phone: "",
+      firstName: "",
+      lastName: "",
+      phone: "",
     },
-    validate,
     _onSubmit: (values) => {
-        console.log(JSON.stringify(values, null, 2));
-        //localStorage.setUsers("values", JSON.stringify(values));
+      console.log(JSON.stringify(values, null, 1));
+      //localStorage.setUsers("values", JSON.stringify(values));
     },
     get onSubmit() {
-        return this._onSubmit;
+      return this._onSubmit;
     },
     set onSubmit(values) {
-        // eslint-disable-next-line react/prop-types
-        this._onSubmit ;
+      submitFormHandler(values);
+      // eslint-disable-next-line react/prop-types, no-setter-return
     },
+    validate,
   });
-   
   return (
-    <form onSubmit={formik.handleSubmit} className="form-inputs">
+    <form onSubmit={submitFormHandler} className="form-inputs">
       <label htmlFor="firstName">First Name</label>
       <input
         id="firstName"

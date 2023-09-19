@@ -28,8 +28,7 @@ body {
   display: flex;
   min-width: 320px;
   min-height: 100vh;
-  /* background-image: url(./src/assets/img2jpg.jpg); */
-  opacity: 0.7;
+  background-color: rgb(107, 96, 96);
   z-index: 1;
   
 }
@@ -60,7 +59,7 @@ button:focus-visible {
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
+    color: #161b21;
     background-color: #ffffff;
   }
   a:hover {

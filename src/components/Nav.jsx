@@ -1,22 +1,31 @@
 // eslint-disable-next-line no-unused-vars
-import { useEffect, useState } from 'react';
-import '../components/Nav.scss';
-function Nav(props) {
-    
+import { useState } from "react";
+import "../components/Nav.scss";
 
-    return (
-        <>
-        
-        <div>
-            <nav>
-                <li><a href="#" onClick={() => props.onToogleChange('home')}>Home</a> </li>
-                <li><a href="#" onClick={() => props.onToogleChange('list')}>List Contacts</a> </li>
-                <li><a href="#" onClick={() => props.onToogleChange('add')}>Add User</a> </li>
-            </nav>
-        </div>
-        
-        </>
-    );
+function Nav({ onToogleChange }) {
+  return (
+    <>
+      <div>
+        <nav>
+          <li>
+            <a href="#" onClick={() => onToogleChange("home")}>
+              Home
+            </a>{" "}
+          </li>
+          <li>
+            <a href="#" onClick={() => onToogleChange("list")}>
+              List Contacts
+            </a>{" "}
+          </li>
+          <li>
+            <a href="#" onClick={() => onToogleChange("add")}>
+              Add User
+            </a>{" "}
+          </li>
+        </nav>
+      </div>
+    </>
+  );
 }
 
 export default Nav;
