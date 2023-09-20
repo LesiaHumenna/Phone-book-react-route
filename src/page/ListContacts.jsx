@@ -21,7 +21,7 @@ function ListContacts(props) {
           {props.userList.map((user) => (
             // eslint-disable-next-line react/jsx-key
             <tbody key={user.id}>
-              <tr className="user-contact">
+              <tr  className="user-contact">
                 <td>{user.id}</td>
                 <td>{user.name}</td>
                 <td>{user.username}</td>
