@@ -1,27 +1,35 @@
-
-tbody, thead{
+.list-title {
+    color: #fff;
+    font-size: 1.375rem;
+    cursor: pointer;
+    .activ {
+        color: #ffffff;
+        text-decoration: underline;
+    }
+}
+tbody,
+thead {
     display: flex;
     flex-direction: column;
     align-content: space-around;
     width: 100%;
 }
-tr{
+tr {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     gap: 100px;
-    border: 1px solid ;
+    border: 1px solid;
     border-radius: 8px;
     margin-bottom: 10px;
     background-color: #cbdef3;
     color: #121213;
 }
 
-.img-list{
+.img-list {
     width: 1.5rem;
     height: 1.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    
 }

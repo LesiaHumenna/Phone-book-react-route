@@ -1,26 +1,21 @@
 // eslint-disable-next-line no-unused-vars
 import { useState } from "react";
 import "../components/Nav.scss";
+import {Link} from "react-router-dom";
 
-function Nav({ onToogleChange }) {
+function Nav() {
   return (
     <>
       <div>
         <nav>
           <li>
-            <a href="#" onClick={() => onToogleChange("home")}>
-              Home
-            </a>{" "}
+            <Link to='/'>Home</Link>
           </li>
           <li>
-            <a href="#" onClick={() => onToogleChange("list")}>
-              List Contacts
-            </a>{" "}
+            <Link to="/list">ListContacts</Link>
           </li>
           <li>
-            <a href="#" onClick={() => onToogleChange("add")}>
-              Add User
-            </a>{" "}
+            <Link to="/formAdd">FormAddUser</Link>
           </li>
         </nav>
       </div>
