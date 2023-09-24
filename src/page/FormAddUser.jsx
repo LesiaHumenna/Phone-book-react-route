@@ -1,12 +1,10 @@
 import { useFormik } from "formik";
 import "./FormAdd.scss";
-//import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 
 const validate = (values) => {
   const errors = {};
-  if (!values.name) {
+  if (!values.name && values.name === null) {
     errors.name = "Required";
   } else if (values.name.length > 15) {
     errors.name = "Must be 15 characters or less";
@@ -24,9 +22,6 @@ const validate = (values) => {
 
 // eslint-disable-next-line react/prop-types
 function FormAddUser ({submitFormHandler}) {
-  // eslint-disable-next-line no-undef
-  
-  //const navigate = useNavigate();
 
   const formik = useFormik({
     initialValues: {
@@ -39,7 +34,7 @@ function FormAddUser ({submitFormHandler}) {
     _onSubmit: (values) => {
       submitFormHandler(values);
       formik.resetForm();
-      
+    
       console.log(JSON.stringify(values, null, 2));
       
     },
@@ -48,14 +43,14 @@ function FormAddUser ({submitFormHandler}) {
     },
     set onSubmit(values) {
       this._onSubmit(values);
+   
     },
   });
 
   // eslint-disable-next-line no-unused-vars
   return (
     <>
-    
-     <form onSubmit={submitFormHandler} className="form-inputs">
+    <form onSubmit={submitFormHandler} className="form-inputs" >
         <label htmlFor="firstName">First Name</label>
         <input
           id="name"
@@ -83,11 +78,11 @@ function FormAddUser ({submitFormHandler}) {
           value={formik.values.phone}
         />
         {formik.errors.phone ? <div>{formik.errors.phone}</div> : null}
-
-        <button type="submit">Submit</button> 
-        <button onClick={formik.handleReset} type="reset">
-          Reset
-        </button>
+      <div className="btn-form">
+        <button onClick={formik.handleReset} type="reset">Reset</button>
+        <Link to={'/listId'}><button onSubmit={submitFormHandler} type="submit">Submit</button></Link> 
+        <Link to={'/edit'}><button type="edit">Edit</button></Link>
+      </div>
       </form>
     </>
   )

@@ -3,19 +3,27 @@
     flex-direction: column;
     align-content: center;
     
-    label, button{
+    label{
         margin-top: 10px;
-        color: black;
+        color: white;
         
     }
     input{
         cursor: pointer;
         border-radius: 5px;
+        
         :active{
             background-color: #b7dbfa;
         }
     }
     button{
         background-color: #b6d8f5;
+        width: 120px;
+    }
+    .btn-form{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 1.5625rem;
     }
 }
