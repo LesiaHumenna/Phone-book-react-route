@@ -41,8 +41,8 @@ function Edit(props) {
     };
     props.setListUsers(updatedUsers);
     console.log(handleSubmit)
-
     navigate("/list");
+    alert(`${formValues.name} edited!`)
   };
 
   return (
