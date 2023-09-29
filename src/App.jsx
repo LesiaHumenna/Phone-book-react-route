@@ -7,7 +7,6 @@ import Home from "./page/Home";
 import ErrorPage from "./page/ErrorPage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./components/Root";
-
 import Edit from "./page/Edit";
 
 function App() {
