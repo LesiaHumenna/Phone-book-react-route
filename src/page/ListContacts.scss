@@ -11,14 +11,17 @@ tbody,
 thead {
     display: flex;
     flex-direction: column;
-    align-content: space-around;
+    align-content: auto;
     width: 100%;
+    
+}
+th{
+    color: #1756a2;
 }
 tr {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 100px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 35px;
     border: 1px solid;
     border-radius: 8px;
     margin-bottom: 10px;
@@ -26,10 +29,12 @@ tr {
     color: #121213;
 }
 
-.img-list {
-    width: 1.5rem;
-    height: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+ .img-list {
+    width: 1.7rem;
+    height: 1.7rem;
+    margin: 0px auto;
+    cursor: pointer;
+}
+.btn-edit{
+    cursor: pointer;
 }

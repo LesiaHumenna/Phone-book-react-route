@@ -1,40 +1,69 @@
-import { Form, useLoaderData } from "react-router-dom";
+/* eslint-disable react/prop-types */
+import "./FormAdd.scss";
+import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { Form } from "react-router-dom";
+import {useState, useEffect} from "react";
 
-export default function Edit() {
-   const { contact } = useLoaderData();
+function Edit(props) {
+  const navigate = useNavigate("/list");
+
+  const [formValues, setFormValues] = useState({
+    id: "",
+    name: "",
+    username: "",
+    phone: "",
+  });
+
+  const { id } = useParams();
+  const user = props.userList.find((u) => u.id === parseInt(id));
+
+  useEffect(() => {
+    if (user) {
+      setFormValues(user);
+    }
+  }, [user]);
+
+  const handleChange = (e) => {
+    setFormValues({
+      ...formValues,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const index = props.userList.findIndex(u => u.id === parseInt(id));
+    const updatedUsers = [...props.userList];
+    updatedUsers[index] = {
+    ...updatedUsers[index],
+    ...formValues
+    };
+    props.setListUsers(updatedUsers);
+    console.log(handleSubmit)
+
+    navigate("/list");
+  };
 
   return (
-    <Form method="post" id="contact-form">
-      <p>
-        <span>Name</span>
-        <input
-          placeholder="name"
-          aria-label="name"
-          type="text"
-          name="name"
-          defaultValue={contact.name}
+    <>
+      <Form onSubmit={handleSubmit} className="form-edit">
+        <input name="name"
+          value={formValues.name}
+          onChange={handleChange}
         />
-        <input
-          placeholder="userName"
-          aria-label="userName"
-          type="text"
-          name="userName"
-          defaultValue={contact.userName}
+        <input name="username"
+          value={formValues.username}
+          onChange={handleChange}
         />
-      </p>
-      <label>
-        <span>Phone</span>
-        <input
-          type="phone"
-          name="phone"
-          placeholder="phone"
-          defaultValue={contact.phone}
+        <input name="phone"
+        value={formValues.phone}
+        onChange={handleChange}
         />
-      </label>
-      <p>
-        <button type="submit">Save</button>
-        <button type="button">Cancel</button>
-      </p>
-    </Form>
+        <button type="submit">Submit</button>
+      </Form>
+    </>
   );
 }
+
+export default Edit;

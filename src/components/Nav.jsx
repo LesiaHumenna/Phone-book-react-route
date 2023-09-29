@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import { useState } from "react";
 import "../components/Nav.scss";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function Nav() {
   return (
@@ -9,17 +9,17 @@ function Nav() {
       <div>
         <nav>
           <li>
-            <Link to="/">Home</Link>
+            <NavLink to="/">Home</NavLink>
           </li>
           <li>
-            <Link to="/list">ListContacts</Link>
+            <NavLink to="/list">ListContacts</NavLink>
           </li>
           <li>
-            <Link to="/formAdd">FormAddUser</Link>
+            <NavLink to="/formAdd">FormAddUser</NavLink>
           </li>
-          <li>
-            <Link to="/edit">Edit</Link>
-          </li>
+          {/* <li> */}
+            {/* <NavLink to="/edit">Edit</NavLink> */}
+          {/* </li> */}
         </nav>
       </div>
     </>

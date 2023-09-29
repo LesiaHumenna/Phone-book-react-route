@@ -7,6 +7,7 @@ import Home from "./page/Home";
 import ErrorPage from "./page/ErrorPage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./components/Root";
+
 import Edit from "./page/Edit";
 
 function App() {
@@ -27,24 +28,6 @@ function App() {
     getUsers();
   }, []);
 
-  const submitFormHandler = (e) => {
-    e.preventDefault();
-
-    const newContactUser = {
-      id: lastUserId + 1,
-      name: e.target.name.value,
-      username: e.target.username.value,
-      phone: e.target.phone.value,
-    };
-    const newUserId = userList.some((item) => item.id === newContactUser.id);
-    if (!newUserId) {
-      setListUsers([...userList, newContactUser]);
-      setLastUserId(lastUserId + 1);
-    }
-    console.log(newContactUser);
-    console.log(userList);
-  };
-
   const router = createBrowserRouter([
     {
       path: "/",
@@ -56,18 +39,19 @@ function App() {
           element: <Home />,
         },
         {
-          path: "/listId",
+          path: "/list",
           element: (
             <ListContacts userList={userList} setListUsers={setListUsers} />
           ),
         },
         {
-          path: "/formAdd",
-          element: <FormAddUser submitFormHandler={submitFormHandler} />,
+          path: ":formAddId",
+          element: <FormAddUser setListUsers={setListUsers} lastUserId={lastUserId} setLastUserId={setLastUserId} userList={userList}/>,
         },
         {
-          path: ":editId",
-          element: <Edit/>,
+          path: "/edit/:id",
+          element: <Edit setListUsers={setListUsers} userList={userList}/>,
+          
         },
       ],
     },
