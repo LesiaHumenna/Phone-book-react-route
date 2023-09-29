@@ -40,7 +40,7 @@ function ListContacts({userList, setListUsers}) {
                     onClick={() => removeUser(user.id)}
                     data-id={user.id}
                     className="img-list"
-                    src="./src/assets/icons8-remove-64.png"
+                    src="./assets/icons8-remove-64.png"
                     alt="Remove"
                   />
                 </td>
