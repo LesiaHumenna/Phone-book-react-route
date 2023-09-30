@@ -17,9 +17,6 @@ function Nav() {
           <li>
             <NavLink to="/formAdd">FormAddUser</NavLink>
           </li>
-          {/* <li> */}
-            {/* <NavLink to="/edit">Edit</NavLink> */}
-          {/* </li> */}
         </nav>
       </div>
     </>

@@ -8,7 +8,7 @@ import ErrorPage from "./page/ErrorPage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./components/Root";
 import Edit from "./page/Edit";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   const [userList, setListUsers] = useState([]);
   const [lastUserId, setLastUserId] = useState(0);
@@ -50,7 +50,6 @@ function App() {
         {
           path: "/edit/:id",
           element: <Edit setListUsers={setListUsers} userList={userList}/>,
-          
         },
       ],
     },
