@@ -3,7 +3,7 @@ function Home() {
     return (
         <>
         <div className="home">
-        <h2>Book-Contacts</h2>
+        <h1>Book-Contacts</h1>
         </div>
         <div className='home-img'>
         <img src="/src/assets/contact-us.jpg" alt="img-contact" />
